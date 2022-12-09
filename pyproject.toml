@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-labeotech"
-version = "0.0.1"
+version = "0.0.1.post1"
 description = "Extension to add support for LabeoTech devices such as water pump systems for mice."
 readme = "README.md"
 requires-python = ">= 3.7"
@@ -24,12 +24,12 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: Implementation :: CPython",
 ]
-urls.homepage = "https://github.com/psychopy/psychopy-qmix"
+urls.homepage = "https://github.com/psychopy/psychopy-labeotech"
 urls.changelog = "https://github.com/psychopy/psychopy-qmix/blob/main/CHANGELOG.txt"
-urls.documentation = "https://pages.github.com/psychopy/psychopy-qmix"
-urls.repository = "https://github.com/psychopy/psychopy-qmix"
+urls.documentation = "https://pages.github.com/psychopy/psychopy-labeotech"
+urls.repository = "https://github.com/psychopy/psychopy-labeotech"
 dependencies = [
-  "pyqmix",
+  "pyserial",
 ]
 
 [tool.setuptools.packages.find]
