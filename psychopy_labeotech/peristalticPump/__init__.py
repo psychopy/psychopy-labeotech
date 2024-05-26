@@ -6,19 +6,20 @@
 # Distributed under the terms of the GNU General Public License (GPL).
 
 from pathlib import Path
-from psychopy.experiment.components import BaseComponent, Param, _translate
-from psychopy.localization import _localized as __localized
+from psychopy.experiment.components import BaseComponent, Param
 import serial.tools.list_ports
-_localized = __localized.copy()
 
-_localized.update({'pulseDuration': _translate('Pulse duration (s)'),
-                    'numberOfPulses': _translate('Number of pulses'),
-                    'numberOfSequences': _translate('Number of sequences'),
-                    'delayBetweenSeq': _translate('Delay between sequences (s)'),
-                    'delayBetweenPulses': _translate('Delay between pulses (s)'),
-                    'saveStats': _translate('Save actions of pump and licks to txt file'),
-                    'stopVal': _translate('Duration (s)'),
-                    'com_port': _translate('COM port'),})
+# removed localization for now
+_localized = {
+    'pulseDuration': 'Pulse duration (s)',
+    'numberOfPulses': 'Number of pulses',
+    'numberOfSequences': 'Number of sequences',
+    'delayBetweenSeq': 'Delay between sequences (s)',
+    'delayBetweenPulses': 'Delay between pulses (s)',
+    'saveStats': 'Save actions of pump and licks to txt file',
+    'stopVal': 'Duration (s)',
+    'com_port': 'COM port'
+}
 
 
 class PeristalticPumpComponent(BaseComponent):
@@ -26,7 +27,7 @@ class PeristalticPumpComponent(BaseComponent):
     targets = ['PsychoPy']
     categories = ['I/O']
     iconFile = Path(__file__).parent / 'reward.png'
-    tooltip = _translate(
+    tooltip = (
         'LabeoTech Pump: Delivers a water reward to the animal and monitor '
         'water consumption (licks)')
 
@@ -54,37 +55,37 @@ class PeristalticPumpComponent(BaseComponent):
         self.params['pulseDuration'] = Param(
             pulseDuration, categ='Basic',
             valType='num', inputType="single",
-            hint=_translate('The duration of the pulse sent to the peristaltic pump'),
+            hint='The duration of the pulse sent to the peristaltic pump',
             label=_localized['pulseDuration'])
 
         self.params['numberOfPulses'] = Param(
             numberOfPulses, categ='Basic',
             valType='num', inputType="single",
-            hint=_translate('Number of pulses in a burst sequence'),
+            hint='Number of pulses in a burst sequence',
             label=_localized['numberOfPulses'])
 
         self.params['delayBetweenSeq'] = Param(
             delayBetweenSeq, categ='Basic',
             valType='num', inputType="single",
-            hint=_translate('Delay between sequences'),
+            hint='Delay between sequences',
             label=_localized['delayBetweenSeq'])
 
         self.params['numberOfSequences'] = Param(
             numberOfSequences, categ='Basic',
             valType='num', inputType="single",
-            hint=_translate('Number of sequence in a single reward event'),
+            hint='Number of sequence in a single reward event',
             label=_localized['numberOfSequences'])
 
         self.params['delayBetweenPulses'] = Param(
             delayBetweenPulses, categ='Basic',
             valType='num', inputType="single",
-            hint=_translate('Delay between pulses in a burst sequence'),
+            hint='Delay between pulses in a burst sequence',
             label=_localized['delayBetweenPulses'])
 
         self.params['saveStats'] = Param(
             saveStats, categ='Basic',
             valType='bool', inputType="bool",
-            hint=_translate('Save log to txt file'),
+            hint='Save log to txt file',
             label=_localized['saveStats'])
 
         self.params['stopVal'] = Param(
@@ -92,14 +93,14 @@ class PeristalticPumpComponent(BaseComponent):
                (numberOfPulses - 1)) * numberOfSequences) +
              (delayBetweenSeq * (numberOfSequences - 1))),
             categ='Basic', valType='num', inputType="single",
-            hint=_translate('The duration of the pulse sent to the peristaltic pump'),
+            hint='The duration of the pulse sent to the peristaltic pump',
             label=_localized['stopVal'])
             
         self.params['com_port'] = Param(
             com_port, valType='str', inputType="choice", categ='Basic',
             allowedVals=[p.device for p in serial.tools.list_ports.comports()],
             updates='constant',
-            hint=_translate("COM port"),
+            hint="COM port",
             label=_localized['com_port'])
 
 
