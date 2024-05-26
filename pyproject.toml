@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-labeotech"
-version = "0.0.1.post2"
+version = "0.0.2"
 description = "Extension to add support for LabeoTech devices such as water pump systems for mice."
 readme = "README.md"
 requires-python = ">= 3.7"
@@ -29,7 +29,6 @@ urls.changelog = "https://github.com/psychopy/psychopy-labeotech/blob/main/CHANG
 urls.documentation = "https://pages.github.com/psychopy/psychopy-labeotech"
 urls.repository = "https://github.com/psychopy/psychopy-labeotech"
 dependencies = [
-  "pyserial",
 ]
 
 [tool.setuptools.packages.find]
